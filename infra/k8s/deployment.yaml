@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: routeiq-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: routeiq
+  template:
+    metadata:
+      labels:
+        app: routeiq
+    spec:
+      containers:
+      - name: routeiq
+        image: routeiq:latest
+        ports:
+        - containerPort: 80
